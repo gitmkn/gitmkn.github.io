@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>index on Paper</title>
+    <link>https://gitmkn.github.io/tags/index/</link>
+    <description>Recent content in index on Paper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+    <atom:link href="https://gitmkn.github.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Posts</title>
+      <link>https://gitmkn.github.io/post/</link>
+      <pubDate>Thu, 09 Nov 2023 18:07:49 +0800</pubDate>
+      <guid>https://gitmkn.github.io/post/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

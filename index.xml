@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paper</title>
+    <link>https://gitmkn.github.io/</link>
+    <description>Recent content on Paper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 09 Nov 2023 18:07:49 +0800</lastBuildDate>
+    <atom:link href="https://gitmkn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello</title>
+      <link>https://gitmkn.github.io/post/hello/</link>
+      <pubDate>Thu, 09 Nov 2023 18:07:49 +0800</pubDate>
+      <guid>https://gitmkn.github.io/post/hello/</guid>
+      <description>哈哈哈 </description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://gitmkn.github.io/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/archives/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://gitmkn.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+https://github.com/yuin/goldmark https://github.</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>https://gitmkn.github.io/contact/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/contact/</guid>
+      <description> github.com/nanxiaobei lee.so </description>
+    </item>
+  </channel>
+</rss>
