@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Packer on Arun</title>
+    <link>https://gitmkn.github.io/packer/</link>
+    <description>Recent content in Packer on Arun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 16 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gitmkn.github.io/packer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://gitmkn.github.io/packer/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>https://gitmkn.github.io/packer/about/</link>
+      <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/about/</guid>
+      <description>基础设施即代码（Infrastructure as Code，简称 IaC）是一种管理和配置IT基础设施的方法，它将基础设施的定义和配置以代码的形式编写、存储和管理。这种方法将传统的手动操作过程自动化，使得基础设施的部署、更新和管理变得更加快速、可靠和可重复。
+Various tools for IaC:
+Terraform ：Terraform 是一个开源的 IaC 工具，由 HashiCorp 开发。它允许你使用声明性语言（HCL，HashiCorp Configuration Language）来描述和管理跨多个云提供商的基础设施。Terraform 支持的云服务包括 AWS、Azure、Google Cloud Platform、腾讯云、阿里云等。 Pulumi :Pulumi 是一个开源的 IaC 工具，它允许你使用常见编程语言（如 Python、JavaScript、TypeScript 和 Go）来描述和管理多个云提供商的基础设施。与 Terraform 类似，Pulumi 支持 AWS、Azure、GCP 等多个云平台。 IaC 的核心理念是将基础设施的配置和管理任务视为软件开发的一部分，从而实现对基础设施的版本控制、自动化部署、测试和监控。这种方法可以帮助开发人员和运维团队更高效地协同工作，提高基础设施的稳定性和可扩展性。</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://gitmkn.github.io/packer/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/archives/</guid>
+      <description>你好呀你好呀你好呀你好呀你好呀你好呀你好呀 </description>
+    </item>
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://gitmkn.github.io/packer/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rich Content</title>
+      <link>https://gitmkn.github.io/packer/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Math Typesetting</title>
+      <link>https://gitmkn.github.io/packer/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>https://gitmkn.github.io/packer/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Terraform介绍</title>
+      <link>https://gitmkn.github.io/packer/terraform/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/terraform/</guid>
+      <description> github.com/nanxiaobei lee.so </description>
+    </item>
+  </channel>
+</rss>

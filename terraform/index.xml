@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform on Arun</title>
+    <link>https://gitmkn.github.io/terraform/</link>
+    <description>Recent content in Terraform on Arun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 28 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gitmkn.github.io/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform介绍</title>
+      <link>https://gitmkn.github.io/terraform/terraform/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/terraform/terraform/</guid>
+      <description> github.com/nanxiaobei lee.so </description>
+    </item>
+  </channel>
+</rss>
