@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Packer on Arun</title>
+    <link>https://gitmkn.github.io/tags/packer/</link>
+    <description>Recent content in Packer on Arun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2023, arunma.cn; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 16 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://gitmkn.github.io/tags/packer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>标签🏷️</title>
+      <link>https://gitmkn.github.io/tags/</link>
+      <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/tags/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Packer介绍</title>
+      <link>https://gitmkn.github.io/packer/packer/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/packer/packer/</guid>
+      <description>Packer 是一款由 HashiCorp 开发的虚拟机镜像构建工具。它可以支持主流的公有云、私有云以及混合云，类似于 Docker 在 PaaS 容器虚拟化领域的地位。Packer 可以帮助用户自动化构建虚拟机镜像，从而提高虚拟机部署的效率和可靠性。
+Packer 的核心思想是将虚拟机镜像的构建过程分解为多个可配置的步骤，这些步骤被称为“构建器”（Builder）。每个构建器都与特定的基础设施提供商（IaaS）相关，例如 VMware vSphere、Amazon Web Services（AWS）、Google Cloud Platform（GCP）等。通过使用不同的构建器，Packer 可以在不同的环境中自动化构建虚拟机镜像。
+Packer 的配置文件采用 HCL2 语法，其中包含三类配置：Builder、Provisioner 和 Post-processor。Builder 用于指定使用的构建器以及相关的参数；Provisioner 用于配置构建过程中需要运行的任务，例如安装操作系统、配置网络等；Post-processor 用于配置构建完成后需要执行的后处理操作，例如将虚拟机镜像转换为其他格式等。
+总之，Packer 是一款功能强大的虚拟机镜像构建工具，可以帮助用户自动化构建和部署虚拟机镜像，提高部署效率和可靠性。</description>
+    </item>
+  </channel>
+</rss>
