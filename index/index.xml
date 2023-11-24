@@ -7,13 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2023, arunma.cn; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 23 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gitmkn.github.io/index/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Packer插件开发</title>
+      <link>https://gitmkn.github.io/index/packer_plugin_dev/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/index/packer_plugin_dev/</guid>
+      <description>安装Packer </description>
+    </item>
+    <item>
       <title>Packer安装</title>
-      <link>https://gitmkn.github.io/index/packer_dev/</link>
+      <link>https://gitmkn.github.io/index/packer_install/</link>
       <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://gitmkn.github.io/index/packer_dev/</guid>
+      <guid>https://gitmkn.github.io/index/packer_install/</guid>
       <description>安装Packer 1. 下载Pakcer安装包 wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip 2. 解压Packer安装包 unzip packer_1.9.4_linux_amd64.zip 3. 安装Packer到环境变量目录 sudo mv packer /usr/local/bin 4. 查看Packer版本号，验证安装状态 packer -v </description>
     </item>
     <item>
