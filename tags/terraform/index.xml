@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Terraform on Arun</title>
+    <title>Terraform on IaC</title>
     <link>https://gitmkn.github.io/tags/terraform/</link>
-    <description>Recent content in Terraform on Arun</description>
+    <description>Recent content in Terraform on IaC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2023, arunma.cn; all rights reserved.</copyright>
@@ -18,9 +18,9 @@
     </item>
     <item>
       <title>Terraform介绍</title>
-      <link>https://gitmkn.github.io/terraform/terraform/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://gitmkn.github.io/terraform/terraform/</guid>
+      <link>https://gitmkn.github.io/index/terraform/</link>
+      <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/index/terraform/</guid>
       <description>Terraform是一款开源的资源编排工具，由HashiCorp公司推出，主要用于自动化基础设施的部署和管理。它支持多种云服务提供商，如阿里云、腾讯云、华为云、AWS、Azure、百度云等，允许用户使用统一的编排工具，通过一套语法实现对多个云平台、多种层级（如IaaS，PaaS）资源的统一管理。
 Terraform的核心层是命令行工具，负责读取配置文件、资源状态文件管理、分析资源关系、绘制资源图以及根据依赖关系创建资源。插件层包括Provider和Provisioner两部分，Provider负责与外界API的集成，进行初始化以及与外界API的认证；Provisioner则在资源创建或删除完成后执行一些脚本。
 Terraform使用HashiCorp Configuration Language（HCL）编写代码，这是一种声明式语言，允许程序员描述基础设施应如何配置，而无需了解实施的具体步骤和细节。此外，Terraform还支持使用模块（module）功能，将高度可重用的代码封装成模块，方便其他人使用。

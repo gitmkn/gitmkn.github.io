@@ -52,7 +52,7 @@
   />
 
   
-  <title>IaC</title>
+  <title>Packer安装 - IaC</title>
 
   
   <meta name="theme-color" />
@@ -61,12 +61,8 @@
   
   
   
-  
-  <meta
-    name="description"
-    content="A personal blog"
-  />
-  <meta name="author" content="Arun ma" />
+  <meta name="description" content="安装Packer 1. 下载Pakcer安装包 wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip 2. 解压Packer安装包 unzip packer_1.9.4_linux_amd64.zip 3. 安装Packer到环境变量目录 sudo mv packer /usr/local/bin 4. 查看Packer版本号，验证安装状态 packer -v " />
+  <meta name="author" content="arunma.cn" />
   
 
   
@@ -100,6 +96,12 @@
 
   
   
+  <script
+    defer
+    src="https://gitmkn.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
 
   
   
@@ -117,31 +119,29 @@
   
   
   
-  <meta itemprop="name" content="IaC">
-<meta itemprop="description" content="">
+  <meta itemprop="name" content="Packer安装">
+<meta itemprop="description" content="Packer的安装步骤"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="19">
+<meta itemprop="keywords" content="Packer," />
   
-  <meta property="og:title" content="IaC" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://gitmkn.github.io/" />
+  <meta property="og:title" content="Packer安装" />
+<meta property="og:description" content="Packer的安装步骤" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gitmkn.github.io/index/packer_dev/" /><meta property="article:section" content="index" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
 
 
   
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="IaC"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Packer安装"/>
+<meta name="twitter:description" content="Packer的安装步骤"/>
 
   
   
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://gitmkn.github.io/index.xml"
-    title="IaC"
-  />
   
-  
-  <link rel="canonical" href="https://gitmkn.github.io/" />
+  <link rel="canonical" href="https://gitmkn.github.io/index/packer_dev/" />
   
   
 </head>
@@ -260,86 +260,75 @@
     >
       
 
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Packer安装</h1>
 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-<div class="-mt-2 mb-16 flex items-center">
-  
-  <div
-    class="mr-5 shrink-0 rounded-full border-[0.5px] border-black/10 bg-white/50 p-3 shadow dark:bg-white/[15%]"
-  >
-    <img
-      class="my-0 aspect-square w-16 rounded-full !bg-black/5 hover:animate-spin dark:!bg-black/80"
-      src="https://www.gravatar.com/avatar/8ac6c586274f939bc5e95e2fbdb7c1e4?s=160&amp;d=identicon"
-      alt="Arun ma"
-    />
-  </div>
-  
-  
-  <div>
-    <h1 class="mb-2 mt-3 text-[1.6rem] font-bold">Arun ma</h1>
-    <div class="break-words">
-      如果你能在浪费时间中获得乐趣，就不算浪费时间。 - 罗素
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>2023年11月23日</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>arunma.cn</span>
+      
     </div>
-  </div>
+    
+  </header>
+
+  <section><h2 id="安装packer">安装Packer</h2>
+<h3 id="1-下载pakcer安装包">1. 下载Pakcer安装包</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip
+</span></span></code></pre></div><h3 id="2-解压packer安装包">2. 解压Packer安装包</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>unzip packer_1.9.4_linux_amd64.zip
+</span></span></code></pre></div><h3 id="3-安装packer到环境变量目录">3. 安装Packer到环境变量目录</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo mv packer /usr/local/bin
+</span></span></code></pre></div><h3 id="4-查看packer版本号验证安装状态">4. 查看Packer版本号，验证安装状态</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>packer -v
+</span></span></code></pre></div></section>
+
   
-</div>
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Packer安装</h2>
-  <time class="text-sm antialiased opacity-60"
-    >2023年11月23日</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://gitmkn.github.io/index/packer_dev/">Packer安装</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://gitmkn.github.io/tags/packer"
+      >Packer</a
+    >
+    
+  </footer>
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Packer介绍</h2>
-  <time class="text-sm antialiased opacity-60"
-    >2023年11月10日</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://gitmkn.github.io/index/packer/">Packer介绍</a>
-</section>
 
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Terraform介绍</h2>
-  <time class="text-sm antialiased opacity-60"
-    >2023年11月10日</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://gitmkn.github.io/index/terraform/">Terraform介绍</a>
-</section>
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://gitmkn.github.io/index/packer/"
+      ><span>Packer介绍</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
 
+  
+  
 
+  
+  
 
-
+  
+  
+</article>
 
 
     </main>

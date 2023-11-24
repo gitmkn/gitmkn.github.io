@@ -6,13 +6,19 @@
     <lastmod>2023-11-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gitmkn.github.io/index/</loc>
+    <lastmod>2023-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/tags/packer/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gitmkn.github.io/index/packer_dev/</loc>
+    <lastmod>2023-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/tags/</loc>
-    <lastmod>2023-11-16T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/tags/terraform/</loc>
     <lastmod>2023-11-16T00:00:00+00:00</lastmod>
@@ -20,27 +26,13 @@
     <loc>https://gitmkn.github.io/about/</loc>
     <lastmod>2023-11-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://gitmkn.github.io/index/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gitmkn.github.io/packer/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gitmkn.github.io/packer/packer/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gitmkn.github.io/terraform/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gitmkn.github.io/terraform/terraform/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://gitmkn.github.io/index/packer/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gitmkn.github.io/index/terraform/</loc>
+    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/categories/</loc>
-  </url><url>
-    <loc>https://gitmkn.github.io/tags/index/</loc>
   </url><url>
     <loc>https://gitmkn.github.io/series/</loc>
   </url>
