@@ -1,0 +1,747 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-cn"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Packer插件字段说明 - IaC</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="翻译来源于AI
+必输字段 参数名 类型 描述 secret_id string 腾讯云的 Secret ID。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_ID 环境变量。 secret_key string 腾讯云的 Secret Key。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_KEY 环境变量。 region string 您要启动 CVM 的地区。您应参考区域和可用区参数。 zone string 您要启动 CVM 的可用区。您应参考区域和可用区参数。 instance_type string 您要启动 CVM 的实例类型。您应参考实例类型参数。 image_name string 您要创建的自定义镜像名称，它应由不超过60个字符的字母、数字或减号组成。 可选字段 参数名 类型 描述 cvm_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE CVM 端点。 vpc_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE VPC 端点。 security_token string STS 访问令牌，可以通过模板设置或通过导出环境变量（例如，export SECURITY_TOKEN=value）。 assume_role TencentCloudAccessRole 提供此块时，Packer 将尝试使用提供的凭据进行假定角色。 role_arn string 要假定的角色的 ARN。可以从 TENCENTCLOUD_ASSUME_ROLE_ARN 获取。 session_name string 进行 AssumeRole 调用时要使用的会话名称。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_NAME 获取。 session_duration int 进行 AssumeRole 调用时的会话持续时间（以秒为单位）。其值范围为 0 到 43200（秒），默认值为 7200 秒。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_DURATION 获取。 profile string 凭据配置文件中的配置文件名称。也可以从 TENCENTCLOUD_PROFILE 环境变量获取。如果未设置，则默认使用 tccli configure 创建的默认配置文件。如果未设置，则默认为 default。 shared_credentials_dir string 共享凭据的目录。也可以从 TENCENTCLOUD_SHARED_CREDENTIALS_DIR 环境变量获取。如果未设置，则默认为 ~/." />
+  <meta name="author" content="arunma.cn" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://gitmkn.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://gitmkn.github.io/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/8ac6c586274f939bc5e95e2fbdb7c1e4?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://gitmkn.github.io/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://gitmkn.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://gitmkn.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://gitmkn.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.120.4">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Packer插件字段说明">
+<meta itemprop="description" content="Packer插件字段说明"><meta itemprop="datePublished" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="462">
+<meta itemprop="keywords" content="Packer," />
+  
+  <meta property="og:title" content="Packer插件字段说明" />
+<meta property="og:description" content="Packer插件字段说明" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gitmkn.github.io/index/packer_plugin_param/" /><meta property="article:section" content="index" />
+<meta property="article:published_time" content="2023-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-24T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Packer插件字段说明"/>
+<meta name="twitter:description" content="Packer插件字段说明"/>
+
+  
+  
+  
+  <link rel="canonical" href="https://gitmkn.github.io/index/packer_plugin_param/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://gitmkn.github.io/"
+      >IaC</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/tags/"
+        >标签</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >关于</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/gitmkn"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Packer插件字段说明</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>2023年11月24日</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>arunma.cn</span>
+      
+    </div>
+    
+  </header>
+
+  <section><blockquote>
+<p><strong>翻译来源于AI</strong></p>
+</blockquote>
+<h2 id="必输字段">必输字段</h2>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>secret_id</td>
+<td>string</td>
+<td>腾讯云的 Secret ID。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_ID 环境变量。</td>
+</tr>
+<tr>
+<td>secret_key</td>
+<td>string</td>
+<td>腾讯云的 Secret Key。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_KEY 环境变量。</td>
+</tr>
+<tr>
+<td>region</td>
+<td>string</td>
+<td>您要启动 CVM 的地区。您应参考区域和可用区参数。</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>string</td>
+<td>您要启动 CVM 的可用区。您应参考区域和可用区参数。</td>
+</tr>
+<tr>
+<td>instance_type</td>
+<td>string</td>
+<td>您要启动 CVM 的实例类型。您应参考实例类型参数。</td>
+</tr>
+<tr>
+<td>image_name</td>
+<td>string</td>
+<td>您要创建的自定义镜像名称，它应由不超过60个字符的字母、数字或减号组成。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="可选字段">可选字段</h2>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cvm_endpoint</td>
+<td>string</td>
+<td>连接云端点，如果是 TCE 云，则应设置为 TCE CVM 端点。</td>
+</tr>
+<tr>
+<td>vpc_endpoint</td>
+<td>string</td>
+<td>连接云端点，如果是 TCE 云，则应设置为 TCE VPC 端点。</td>
+</tr>
+<tr>
+<td>security_token</td>
+<td>string</td>
+<td>STS 访问令牌，可以通过模板设置或通过导出环境变量（例如，export SECURITY_TOKEN=value）。</td>
+</tr>
+<tr>
+<td>assume_role</td>
+<td>TencentCloudAccessRole</td>
+<td>提供此块时，Packer 将尝试使用提供的凭据进行假定角色。</td>
+</tr>
+<tr>
+<td>role_arn</td>
+<td>string</td>
+<td>要假定的角色的 ARN。可以从 TENCENTCLOUD_ASSUME_ROLE_ARN 获取。</td>
+</tr>
+<tr>
+<td>session_name</td>
+<td>string</td>
+<td>进行 AssumeRole 调用时要使用的会话名称。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_NAME 获取。</td>
+</tr>
+<tr>
+<td>session_duration</td>
+<td>int</td>
+<td>进行 AssumeRole 调用时的会话持续时间（以秒为单位）。其值范围为 0 到 43200（秒），默认值为 7200 秒。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_DURATION 获取。</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>string</td>
+<td>凭据配置文件中的配置文件名称。也可以从 TENCENTCLOUD_PROFILE 环境变量获取。如果未设置，则默认使用 tccli configure 创建的默认配置文件。如果未设置，则默认为 default。</td>
+</tr>
+<tr>
+<td>shared_credentials_dir</td>
+<td>string</td>
+<td>共享凭据的目录。也可以从 TENCENTCLOUD_SHARED_CREDENTIALS_DIR 环境变量获取。如果未设置，则默认为 ~/.tccli。</td>
+</tr>
+<tr>
+<td>image_description</td>
+<td>string</td>
+<td>镜像描述。长度不超过 60 个字符。</td>
+</tr>
+<tr>
+<td>force_poweroff</td>
+<td>bool</td>
+<td>在创建镜像时是否执行强制关机。默认值为 false。</td>
+</tr>
+<tr>
+<td>sysprep</td>
+<td>bool</td>
+<td>在创建 Windows 镜像时是否启用 Sysprep。</td>
+</tr>
+<tr>
+<td>image_copy_regions</td>
+<td>[]string</td>
+<td>在创建镜像后将复制到的区域。</td>
+</tr>
+<tr>
+<td>image_share_accounts</td>
+<td>[]string</td>
+<td>在创建镜像后将共享到的账户。</td>
+</tr>
+<tr>
+<td>image_tags</td>
+<td>map[string]string</td>
+<td>将应用于结果镜像的键/值对标签。</td>
+</tr>
+<tr>
+<td>associate_public_ip_address</td>
+<td>bool</td>
+<td>是否为您的 CVM 分配公共 IP。默认值为 false。</td>
+</tr>
+<tr>
+<td>source_image_id</td>
+<td>string</td>
+<td>要从中创建自定义镜像的基础镜像 ID。</td>
+</tr>
+<tr>
+<td>source_image_name</td>
+<td>string</td>
+<td>要从中创建自定义镜像的基础镜像名称。冲突时使用 SourceImageId。</td>
+</tr>
+<tr>
+<td>instance_charge_type</td>
+<td>string</td>
+<td>CVM 的计费类型，值可以是 POSTPAID_BY_HOUR（默认）或 SPOTPAID。</td>
+</tr>
+<tr>
+<td>instance_name</td>
+<td>string</td>
+<td>实例名称。</td>
+</tr>
+<tr>
+<td>disk_type</td>
+<td>string</td>
+<td>CVM 将启动的根磁盘类型。默认为 CLOUD_PREMIUM。您可以参考磁盘类型。</td>
+</tr>
+<tr>
+<td>disk_size</td>
+<td>int64</td>
+<td>CVM 将启动的根磁盘大小。值范围：</td>
+</tr>
+<tr>
+<td>data_disks</td>
+<td>[]tencentCloudDataDisk</td>
+<td>在创建镜像之前，将一个或多个数据磁盘添加到实例。注意，如果源镜像具有数据磁盘快照，则此参数将被忽略，实例将使用源镜像中的数据磁盘设置，在这种情况下，disk_type 参数将用于所有数据磁盘，每个数据磁盘大小将使用源镜像中的原始值。数据磁盘允许以下参数：</td>
+</tr>
+<tr>
+<td>vpc_id</td>
+<td>string</td>
+<td>指定 CVM 将启动的 VPC。</td>
+</tr>
+<tr>
+<td>vpc_name</td>
+<td>string</td>
+<td>指定将创建的 VPC 名称。如果 vpc_id 未设置，Packer 将为您创建一个名为此参数的 VPC。</td>
+</tr>
+<tr>
+<td>subnet_id</td>
+<td>string</td>
+<td>指定 CVM 将启动的子网。</td>
+</tr>
+<tr>
+<td>subnet_name</td>
+<td>string</td>
+<td>指定子网名称。如果 subnet_id 未设置，Packer 将为您创建一个名为此参数的子网。</td>
+</tr>
+<tr>
+<td>cidr_block</td>
+<td>string</td>
+<td>指定 vpc 的 cider 块。</td>
+</tr>
+<tr>
+<td>subnect_cidr_block</td>
+<td>string</td>
+<td>指定子网的 cider 块。</td>
+</tr>
+<tr>
+<td>internet_charge_type</td>
+<td>string</td>
+<td>CVM 的 Internet 费用类型，值可以是 TRAFFIC_POSTPAID_BY_HOUR、BANDWIDTH_POSTPAID_BY_HOUR 或 BANDWIDTH_PACKAGE。</td>
+</tr>
+<tr>
+<td>internet_max_bandwidth_out</td>
+<td>int64</td>
+<td>CVM 将启动的最大出站带宽（以 MB 为单位）。值可以设置在 1 到 100 之间。</td>
+</tr>
+<tr>
+<td>bandwidth_package_id</td>
+<td>string</td>
+<td>当 internet_charge_type 为 BANDWIDTH_PACKAGE 时，需要指定 bandwidth_package_id。</td>
+</tr>
+<tr>
+<td>security_group_id</td>
+<td>string</td>
+<td>指定 CVM 将启动的安全组。</td>
+</tr>
+<tr>
+<td>security_group_name</td>
+<td>string</td>
+<td>指定安全组名称。如果 security_group_id 未设置，Packer 将为您创建一个名为此参数的安全组。</td>
+</tr>
+<tr>
+<td>user_data</td>
+<td>string</td>
+<td>用户数据。</td>
+</tr>
+<tr>
+<td>user_data_file</td>
+<td>string</td>
+<td>用户数据文件。</td>
+</tr>
+<tr>
+<td>host_name</td>
+<td>string</td>
+<td>主机名。</td>
+</tr>
+<tr>
+<td>cam_role_name</td>
+<td>string</td>
+<td>CAM 角色名称。</td>
+</tr>
+<tr>
+<td>run_tags</td>
+<td>map[string]string</td>
+<td>在启动实例时附加到实例的标签。这些标签不会应用于结果镜像。</td>
+</tr>
+<tr>
+<td>run_tag</td>
+<td>[]{key string, value string}</td>
+<td>与 run_tags 类似，但允许您以单独可重复的块形式定义键和值。在 HCL2 模式下，动态块允许您以编程方式创建这些</td>
+</tr>
+</tbody>
+</table>
+<h2 id="连接配置参数">连接配置参数</h2>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>communicator</td>
+<td>string</td>
+<td>Packer目前支持三种通信器：<code>none</code> - 不使用通信器，<code>ssh</code> - 建立SSH连接，通常是默认的选项，<code>winrm</code> - 建立WinRM连接。此外，一些构建器具有自定义通信器，如Docker构建器的 &ldquo;docker&rdquo; 通信器使用 <code>docker exec</code> 和 <code>docker cp</code> 执行脚本和复制文件。</td>
+</tr>
+<tr>
+<td>pause_before_connecting</td>
+<td>string</td>
+<td>ex: &ldquo;1h5m2s&rdquo;，我们建议在客户机的引导脚本中的最后一步启用SSH或WinRM，但有时可能存在等待的竞争条件，需要Packer在尝试连接到客户机之前等待一段时间。使用模板选项 <code>pause_before_connecting</code> 可以解决这种情况。默认情况下，没有暂停。例如，如果将 <code>pause_before_connecting</code> 设置为 <code>10m</code>，Packer将正常检查是否可以连接。但一旦连接尝试成功，它将断开连接，然后等待10分钟，然后再连接到客户机并开始配置。</td>
+</tr>
+<tr>
+<td>ssh_host</td>
+<td>string</td>
+<td>SSH 连接地址。通常由构建器自动配置。</td>
+</tr>
+<tr>
+<td>ssh_port</td>
+<td>int</td>
+<td>SSH 连接端口。默认为 22。</td>
+</tr>
+<tr>
+<td>ssh_username</td>
+<td>string</td>
+<td>SSH 连接用户名。使用 SSH 时必须提供。</td>
+</tr>
+<tr>
+<td>ssh_password</td>
+<td>string</td>
+<td>用于身份验证的明文密码。</td>
+</tr>
+<tr>
+<td>ssh_ciphers</td>
+<td>[]string</td>
+<td>覆盖 Golang 默认支持的加密算法。默认值为 [&ldquo;aes128-gcm@openssh.com&rdquo;, &ldquo;chacha20-poly1305@openssh.com&rdquo;, &ldquo;aes128-ctr&rdquo;, &ldquo;aes192-ctr&rdquo;, &ldquo;aes256-ctr&rdquo;]。</td>
+</tr>
+<tr>
+<td>ssh_clear_authorized_keys</td>
+<td>bool</td>
+<td>如果为 true，则 Packer 将尝试从 ~/.ssh/authorized_keys 和 /root/.ssh/authorized_keys 中删除其临时密钥。这是一个大多数情况下仅起到美化作用的选项，因为不管设置为 true 还是 false，Packer 都会从主机系统中删除临时私钥（除非用户设置了 -debug 标志）。默认值为 false；目前仅适用于安装了 sed 的客户机。</td>
+</tr>
+<tr>
+<td>ssh_key_exchange_algorithms</td>
+<td>[]string</td>
+<td>如果设置，则 Packer 将覆盖 Golang 默认支持的密钥交换（kex）算法。可接受的值包括：&ldquo;<a href="mailto:curve25519-sha256@libssh.org">curve25519-sha256@libssh.org</a>&rdquo;、&ldquo;ecdh-sha2-nistp256&rdquo;、&ldquo;ecdh-sha2-nistp384&rdquo;、&ldquo;ecdh-sha2-nistp521&rdquo;、&ldquo;diffie-hellman-group14-sha1&rdquo; 和 &ldquo;diffie-hellman-group1-sha1&rdquo;。</td>
+</tr>
+<tr>
+<td>ssh_certificate_file</td>
+<td>string</td>
+<td>用于身份验证的用户证书文件路径。路径中可以使用 ~ 表示当前用户的主目录。</td>
+</tr>
+<tr>
+<td>ssh_pty</td>
+<td>bool</td>
+<td>如果为 true，则请求一个 PTY 进行 SSH 连接。默认为 false。</td>
+</tr>
+<tr>
+<td>ssh_timeout</td>
+<td>string</td>
+<td>ex:&ldquo;1h5m2s&rdquo;， 等待 SSH 可用的时间。Packer 使用此选项来确定主机何时已启动，因此通常会很长。例如：10m。默认为 5m，除非设置了 ssh_handshake_attempts。</td>
+</tr>
+<tr>
+<td>ssh_disable_agent_forwarding</td>
+<td>bool</td>
+<td>如果为 true，则禁用 SSH 代理转发。默认为 false。</td>
+</tr>
+<tr>
+<td>ssh_handshake_attempts</td>
+<td>int</td>
+<td>SSH 连接成功后尝试握手的次数。默认为 10，除非设置了 ssh_timeout。</td>
+</tr>
+<tr>
+<td>ssh_bastion_host</td>
+<td>string</td>
+<td>用于实际 SSH 连接的跳板主机。</td>
+</tr>
+<tr>
+<td>ssh_bastion_port</td>
+<td>int</td>
+<td>跳板主机的端口。默认为 22。</td>
+</tr>
+<tr>
+<td>ssh_bastion_agent_auth</td>
+<td>bool</td>
+<td>如果为 true，则使用本地 SSH 代理进行跳板主机身份验证。默认为 false。</td>
+</tr>
+<tr>
+<td>ssh_bastion_username</td>
+<td>string</td>
+<td>连接跳板主机的用户名。</td>
+</tr>
+<tr>
+<td>ssh_bastion_password</td>
+<td>string</td>
+<td>用于身份验证的跳板主机密码。</td>
+</tr>
+<tr>
+<td>ssh_bastion_interactive</td>
+<td>bool</td>
+<td>如果为 true，则使用键盘交互进行跳板主机身份验证。</td>
+</tr>
+<tr>
+<td>ssh_bastion_private_key_file</td>
+<td>string</td>
+<td>用于身份验证的 PEM 编码私钥文件路径。路径中可以使用 ~ 表示当前用户的主目录。</td>
+</tr>
+<tr>
+<td>ssh_bastion_certificate_file</td>
+<td>string</td>
+<td>用于身份验证的用户证书文件路径。路径中可以使用 ~ 表示当前用户的主目录。</td>
+</tr>
+<tr>
+<td>ssh_file_transfer_method</td>
+<td>string</td>
+<td>文件传输方式，可选值</td>
+</tr>
+<tr>
+<td>ssh_keypair_name</td>
+<td>string</td>
+<td>如果指定，则这是用于 SSH 连接的密钥。密钥必须与远程加载的密钥对名称匹配。默认情况下，这是空白的，除非使用 <a href="#ssh_password">ssh_password</a>。当使用 <a href="#ssh_keypair_name">ssh_keypair_name</a> 时，必须指定 <a href="#ssh_private_key_file">ssh_private_key_file</a> 或 <a href="#ssh_agent_auth">ssh_agent_auth</a>。</td>
+</tr>
+<tr>
+<td>ssh_private_key_file</td>
+<td>string</td>
+<td>用于身份验证的 PEM 编码私钥文件路径。路径中可以使用 ~ 表示当前用户的主目录。</td>
+</tr>
+<tr>
+<td>ssh_agent_auth</td>
+<td>bool</td>
+<td>如果为 true，则使用本地 SSH 代理进行连接身份验证。不会创建临时密钥对，并且 <a href="#ssh_password">ssh_password</a> 和 <a href="#ssh_private_key_file">ssh_private_key_file</a> 的值将被忽略。必须设置环境变量 SSH_AUTH_SOCK 才能正常使用此选项。</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://gitmkn.github.io/tags/packer"
+      >Packer</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://gitmkn.github.io/index/packer_plugin_dev/"
+      ><span>Packer插件开发</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://gitmkn.github.io/">IaC</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

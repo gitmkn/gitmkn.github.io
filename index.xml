@@ -10,16 +10,24 @@
     <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gitmkn.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Packer插件字段说明</title>
+      <link>https://gitmkn.github.io/index/packer_plugin_param/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/index/packer_plugin_param/</guid>
+      <description>翻译来源于AI
+必输字段 参数名 类型 描述 secret_id string 腾讯云的 Secret ID。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_ID 环境变量。 secret_key string 腾讯云的 Secret Key。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_KEY 环境变量。 region string 您要启动 CVM 的地区。您应参考区域和可用区参数。 zone string 您要启动 CVM 的可用区。您应参考区域和可用区参数。 instance_type string 您要启动 CVM 的实例类型。您应参考实例类型参数。 image_name string 您要创建的自定义镜像名称，它应由不超过60个字符的字母、数字或减号组成。 可选字段 参数名 类型 描述 cvm_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE CVM 端点。 vpc_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE VPC 端点。 security_token string STS 访问令牌，可以通过模板设置或通过导出环境变量（例如，export SECURITY_TOKEN=value）。 assume_role TencentCloudAccessRole 提供此块时，Packer 将尝试使用提供的凭据进行假定角色。 role_arn string 要假定的角色的 ARN。可以从 TENCENTCLOUD_ASSUME_ROLE_ARN 获取。 session_name string 进行 AssumeRole 调用时要使用的会话名称。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_NAME 获取。 session_duration int 进行 AssumeRole 调用时的会话持续时间（以秒为单位）。其值范围为 0 到 43200（秒），默认值为 7200 秒。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_DURATION 获取。 profile string 凭据配置文件中的配置文件名称。也可以从 TENCENTCLOUD_PROFILE 环境变量获取。如果未设置，则默认使用 tccli configure 创建的默认配置文件。如果未设置，则默认为 default。 shared_credentials_dir string 共享凭据的目录。也可以从 TENCENTCLOUD_SHARED_CREDENTIALS_DIR 环境变量获取。如果未设置，则默认为 ~/.</description>
+    </item>
+    <item>
       <title>Packer插件开发</title>
       <link>https://gitmkn.github.io/index/packer_plugin_dev/</link>
-      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://gitmkn.github.io/index/packer_plugin_dev/</guid>
-      <description>安装Packer </description>
+      <description>1、安装Packer 参照安装pcaker 2、fork代码及拉取代码 fork代码 拉取代码 git clone git@github.com:gitmkn/packer-plugin-tencentcloud.git 创建分支，开发代码 3、代码目录介绍 . ├── builder # 构建cvm镜像 │ └── tencentcloud # 提供商 │ ├── cvm # 产品 │ │ ├── access_config.go # 基础数据配置，aksk等 │ │ ├── access_config.hcl2spec.go # 基础数据配置支持hcl文件 │ │ ├── access_config_test.go # 测试用例 │ │ ├── artifact.go # 构建镜像编排文件 │ │ ├── builder.go # 定义构建产物 │ │ ├── builder.hcl2spec.go # 定义构建产物支持hcl │ │ ├── client.go # 创建API clent │ │ ├── common.</description>
     </item>
     <item>
       <title>Packer安装</title>
       <link>https://gitmkn.github.io/index/packer_install/</link>
-      <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://gitmkn.github.io/index/packer_install/</guid>
       <description>安装Packer 1. 下载Pakcer安装包 wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip 2. 解压Packer安装包 unzip packer_1.9.4_linux_amd64.zip 3. 安装Packer到环境变量目录 sudo mv packer /usr/local/bin 4. 查看Packer版本号，验证安装状态 packer -v </description>
     </item>

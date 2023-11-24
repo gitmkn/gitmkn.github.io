@@ -61,7 +61,7 @@
   
   
   
-  <meta name="description" content="安装Packer " />
+  <meta name="description" content="1、安装Packer 参照安装pcaker 2、fork代码及拉取代码 fork代码 拉取代码 git clone git@github.com:gitmkn/packer-plugin-tencentcloud.git 创建分支，开发代码 3、代码目录介绍 . ├── builder # 构建cvm镜像 │ └── tencentcloud # 提供商 │ ├── cvm # 产品 │ │ ├── access_config.go # 基础数据配置，aksk等 │ │ ├── access_config.hcl2spec.go # 基础数据配置支持hcl文件 │ │ ├── access_config_test.go # 测试用例 │ │ ├── artifact.go # 构建镜像编排文件 │ │ ├── builder.go # 定义构建产物 │ │ ├── builder.hcl2spec.go # 定义构建产物支持hcl │ │ ├── client.go # 创建API clent │ │ ├── common." />
   <meta name="author" content="arunma.cn" />
   
 
@@ -120,17 +120,17 @@
   
   
   <meta itemprop="name" content="Packer插件开发">
-<meta itemprop="description" content="Packer插件开发"><meta itemprop="datePublished" content="2023-11-24T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-11-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1">
+<meta itemprop="description" content="Packer插件开发"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="413">
 <meta itemprop="keywords" content="Packer," />
   
   <meta property="og:title" content="Packer插件开发" />
 <meta property="og:description" content="Packer插件开发" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://gitmkn.github.io/index/packer_plugin_dev/" /><meta property="article:section" content="index" />
-<meta property="article:published_time" content="2023-11-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-11-24T00:00:00+00:00" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
 
 
   
@@ -267,7 +267,7 @@
     
     <div class="text-sm antialiased opacity-60">
       
-      <time>2023年11月24日</time>
+      <time>2023年11月23日</time>
       
       
       
@@ -279,7 +279,153 @@
     
   </header>
 
-  <section><h2 id="安装packer">安装Packer</h2>
+  <section><h2 id="1安装packer">1、安装Packer</h2>
+<ul>
+<li><a href="/index/packer_install">参照安装pcaker</a></li>
+</ul>
+<h2 id="2fork代码及拉取代码">2、fork代码及拉取代码</h2>
+<ul>
+<li>fork代码
+<img src="../imges/img.png" alt="img.png"></li>
+<li>拉取代码
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone git@github.com:gitmkn/packer-plugin-tencentcloud.git
+</span></span></code></pre></div></li>
+<li>创建分支，开发代码</li>
+</ul>
+<h2 id="3代码目录介绍">3、代码目录介绍</h2>
+<pre><code>.
+├── builder                                          # 构建cvm镜像
+│   └── tencentcloud                                 # 提供商
+│       ├── cvm                                      # 产品
+│       │   ├── access_config.go                     # 基础数据配置，aksk等
+│       │   ├── access_config.hcl2spec.go            # 基础数据配置支持hcl文件
+│       │   ├── access_config_test.go                # 测试用例
+│       │   ├── artifact.go                          # 构建镜像编排文件
+│       │   ├── builder.go                           # 定义构建产物
+│       │   ├── builder.hcl2spec.go                  # 定义构建产物支持hcl
+│       │   ├── client.go                            # 创建API clent
+│       │   ├── common.go                            # 公共方法
+│       │   ├── image_config.go                      # 镜像参数配置
+│       │   ├── image_config_test.go                 # 镜像参数配置测试用例
+│       │   ├── run_config.go                        # cvm参数配置
+│       │   ├── run_config.hcl2spec.go               # cvm参数配置支持hcl
+│       │   ├── run_config_test.go                   # cvm参数配置测试用例
+│       │   ├── step_check_source_image.go           # 检查source_image_id是否存在
+│       │   ├── step_config_key_pair.go              # 创建/删除`OpenSSH RSA` 密钥对，可以用于登录 `Linux` 实例
+│       │   ├── step_config_security_group.go        # 创建/绑定/删除安全组
+│       │   ├── step_config_subnet.go                # 创建/删除子网
+│       │   ├── step_config_vpc.go                   # 配置/创建/删除vpc
+│       │   ├── step_copy_image.go                   # 复制镜像
+│       │   ├── step_create_image.go                 # 创建/删除镜像
+│       │   ├── step_detach_temp_key_pair.go         # 解除实例的密钥绑定关系
+│       │   ├── step_pre_validate.go                 # 检查镜像名称
+│       │   ├── step_run_instance.go                 # 创建实例
+│       │   └── step_share_image.go                  # 镜像共享
+│       └── examples                                 # 示例
+│           ├── basic.json                           # 基础示例
+│           ├── basic-with-data-disk.json            # 支持云盘示例
+│           ├── centos.json                          # centos示例
+│           └── tce.pkr.hcl
+├── CHANGELOG.md                                     # changelog
+├── CODEOWNERS
+├── docs
+│   ├── builders
+│   │   └── cvm.mdx                                  # 文档配置
+│   └── README.md                                    # 使用文档
+├── docs-partials                                    # 生成go结构体文档目录
+│   └── builder
+│       └── tencentcloud
+│           └── cvm
+│               ├── TencentCloudAccessConfig-not-required.mdx
+│               ├── TencentCloudAccessConfig-required.mdx
+│               ├── TencentCloudAccessRole-not-required.mdx
+│               ├── tencentCloudDataDisk-not-required.mdx
+│               ├── TencentCloudImageConfig-not-required.mdx
+│               ├── TencentCloudImageConfig-required.mdx
+│               ├── TencentCloudRunConfig-not-required.mdx
+│               └── TencentCloudRunConfig-required.mdx
+├── example
+│   └── build.pkr.hcl                                 # 使用示例
+├── GNUmakefile                                       # make文件
+├── go.mod
+├── go.sum
+├── LICENSE                                           # 项目的许可证
+├── main.go                                           # 入口函数
+├── README.md                                         # 项目的自述文件
+└── version
+└── version.go
+</code></pre>
+<h2 id="4文档生成">4、文档生成</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make generate
+</span></span></code></pre></div><h2 id="5测试">5、测试</h2>
+<ul>
+<li>配置AKSK、REGION</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export TENCENTCLOUD_SECRET_ID<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>export TENCENTCLOUD_SECRET_KEY<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>export TENCENTCLOUD_REGION<span style="color:#f92672">=</span>ap-guangzhou
+</span></span></code></pre></div><ul>
+<li>配置环境变量，配置packer使用本地开发插件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PACKER_PLUGIN_PATH<span style="color:#f92672">=</span>/root/packer-plugin-tencentcloud/
+</span></span></code></pre></div><ul>
+<li>开启日志</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PACKER_LOG<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>export PACKER_LOG_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;packer.log&#34;</span>
+</span></span></code></pre></div><ul>
+<li>编写测试json或hcl，字段说明请参照<a href="/index/packer_plugin_param">packer字段说明</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;variables&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;secret_id&#34;</span>: <span style="color:#e6db74">&#34;{{env `TENCENTCLOUD_SECRET_ID`}}&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;secret_key&#34;</span>: <span style="color:#e6db74">&#34;{{env `TENCENTCLOUD_SECRET_KEY`}}&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;builders&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;tencentcloud-cvm&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;secret_id&#34;</span>: <span style="color:#e6db74">&#34;{{user `secret_id`}}&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;secret_key&#34;</span>: <span style="color:#e6db74">&#34;{{user `secret_key`}}&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;zone&#34;</span>: <span style="color:#e6db74">&#34;ap-guangzhou-6&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;instance_type&#34;</span>: <span style="color:#e6db74">&#34;SA3.MEDIUM2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;source_image_id&#34;</span>: <span style="color:#e6db74">&#34;img-9xqekomx&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ssh_username&#34;</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image_name&#34;</span>: <span style="color:#e6db74">&#34;Packer-terraform-as&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;disk_type&#34;</span>: <span style="color:#e6db74">&#34;CLOUD_PREMIUM&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;packer_debug&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;associate_public_ip_address&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;image_copy_regions&#34;</span>: [
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;ap-shanghai&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;run_tags&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;packer&#34;</span>: <span style="color:#e6db74">&#34;packer+terraform+as&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;provisioners&#34;</span>: [{
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;shell&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;inline&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;yum install nginx -y&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cd /etc/nginx&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nginx&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cd ~&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;mkdir release—version&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cd release—version&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;wget https://github.com/gitmkn/packer_terraform_as/archive/refs/tags/v1.0.3.tar.gz&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tar -zxvf v1.0.3.tar.gz&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sudo cp packer_terraform_as-1.0.3/business/* /usr/share/nginx/html/&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nginx -s reload&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sudo systemctl enable nginx&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="6注意事项">6、注意事项</h2>
+<ul>
+<li>文档不可手动修改</li>
+<li>生成md相关文档，需要在go文件加<kbd>//go:generate packer-sdc struct-markdown</kbd></li>
+<li>生成结构体相关文档，需要在go文件加<kbd>go:generate packer-sdc mapstructure-to-hcl2 -type xxxxxxxx</kbd></li>
+<li>不要手动修改带有<kbd>// Code generated by &ldquo;packer-sdc mapstructure-to-hcl2&rdquo;; DO NOT EDIT.</kbd>的文件，都为<kbd>make generate</kbd>生成</li>
+</ul>
 </section>
 
   
@@ -300,6 +446,12 @@
   
   
   <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://gitmkn.github.io/index/packer_plugin_param/"
+      ><span class="mr-1.5">←</span><span>Packer插件字段说明</span></a
+    >
     
     
     <a
