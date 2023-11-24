@@ -18,6 +18,13 @@
 必输字段 参数名 类型 描述 secret_id string 腾讯云的 Secret ID。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_ID 环境变量。 secret_key string 腾讯云的 Secret Key。您可以直接设置它，或设置 TENCENTCLOUD_SECRET_KEY 环境变量。 region string 您要启动 CVM 的地区。您应参考区域和可用区参数。 zone string 您要启动 CVM 的可用区。您应参考区域和可用区参数。 instance_type string 您要启动 CVM 的实例类型。您应参考实例类型参数。 image_name string 您要创建的自定义镜像名称，它应由不超过60个字符的字母、数字或减号组成。 可选字段 参数名 类型 描述 cvm_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE CVM 端点。 vpc_endpoint string 连接云端点，如果是 TCE 云，则应设置为 TCE VPC 端点。 security_token string STS 访问令牌，可以通过模板设置或通过导出环境变量（例如，export SECURITY_TOKEN=value）。 assume_role TencentCloudAccessRole 提供此块时，Packer 将尝试使用提供的凭据进行假定角色。 role_arn string 要假定的角色的 ARN。可以从 TENCENTCLOUD_ASSUME_ROLE_ARN 获取。 session_name string 进行 AssumeRole 调用时要使用的会话名称。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_NAME 获取。 session_duration int 进行 AssumeRole 调用时的会话持续时间（以秒为单位）。其值范围为 0 到 43200（秒），默认值为 7200 秒。可以从 TENCENTCLOUD_ASSUME_ROLE_SESSION_DURATION 获取。 profile string 凭据配置文件中的配置文件名称。也可以从 TENCENTCLOUD_PROFILE 环境变量获取。如果未设置，则默认使用 tccli configure 创建的默认配置文件。如果未设置，则默认为 default。 shared_credentials_dir string 共享凭据的目录。也可以从 TENCENTCLOUD_SHARED_CREDENTIALS_DIR 环境变量获取。如果未设置，则默认为 ~/.</description>
     </item>
     <item>
+      <title>Packer使用说明</title>
+      <link>https://gitmkn.github.io/index/packer_use/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/index/packer_use/</guid>
+      <description>前置条件 准备AKSK，参考访问密钥管理 安装packer，参考Packer安装 定义模板 TODO 创建自定义镜像 TODO </description>
+    </item>
+    <item>
       <title>Packer插件开发</title>
       <link>https://gitmkn.github.io/index/packer_plugin_dev/</link>
       <pubDate>Thu, 23 Nov 2023 00:00:00 +0000</pubDate>
