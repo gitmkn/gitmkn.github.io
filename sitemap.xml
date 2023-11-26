@@ -3,21 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://gitmkn.github.io/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/index/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/tags/packer/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gitmkn.github.io/index/packer_plugin_customize/</loc>
+    <lastmod>2023-11-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://gitmkn.github.io/tags/</loc>
+    <lastmod>2023-11-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/index/packer_plugin_param/</loc>
     <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/index/packer_use/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://gitmkn.github.io/tags/</loc>
     <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://gitmkn.github.io/index/packer_plugin_dev/</loc>

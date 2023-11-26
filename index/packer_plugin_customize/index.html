@@ -1,0 +1,376 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-cn"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Packer自定义插件使用 - IaC</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content=" 测试使用，不可用于生产环境
+自定义插件 根据代码构建插件包 Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64 main.go GOOS=linux GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-arm64 main.go MAC GOOS=darwin GOARCH=amd64 go build -o packer-plugin-tencentcloud-darwin-amd64 main.go GOOS=darwin GOARCH=arm64 go build -o packer-plugin-tencentcloud-darwin-arm64 main.go WIN GOOS=windows GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-windows-amd64.exe main.go GOOS=windows GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-windows-arm64.exe main.go 选择执行机操作系统对应的插件包 配置插件包路径 export PACKER_PLUGIN_PATH=${插件包路径} 插件授权可执行权限 chmod a&#43;x ${插件包路径}${插件名} 开启日志 export PACKER_LOG=1 export PACKER_LOG_PATH=&#34;packer.log&#34; " />
+  <meta name="author" content="arunma.cn" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://gitmkn.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://gitmkn.github.io/theme.png" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/8ac6c586274f939bc5e95e2fbdb7c1e4?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://gitmkn.github.io/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://gitmkn.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://gitmkn.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://gitmkn.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.120.4">
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="Packer自定义插件使用">
+<meta itemprop="description" content="Packer测试或者使用自定义插件"><meta itemprop="datePublished" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="61">
+<meta itemprop="keywords" content="Packer," />
+  
+  <meta property="og:title" content="Packer自定义插件使用" />
+<meta property="og:description" content="Packer测试或者使用自定义插件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gitmkn.github.io/index/packer_plugin_customize/" /><meta property="article:section" content="index" />
+<meta property="article:published_time" content="2023-11-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-26T00:00:00+00:00" />
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Packer自定义插件使用"/>
+<meta name="twitter:description" content="Packer测试或者使用自定义插件"/>
+
+  
+  
+  
+  <link rel="canonical" href="https://gitmkn.github.io/index/packer_plugin_customize/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://gitmkn.github.io/"
+      >IaC</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/tags/"
+        >标签</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >关于</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/gitmkn"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Packer自定义插件使用</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>2023年11月26日</time>
+      
+      
+      
+      
+      <span class="mx-1">&middot;</span>
+      <span>arunma.cn</span>
+      
+    </div>
+    
+  </header>
+
+  <section><blockquote>
+<p><strong>测试使用，不可用于生产环境</strong></p>
+</blockquote>
+<h2 id="自定义插件">自定义插件</h2>
+<h3 id="根据代码构建插件包">根据代码构建插件包</h3>
+<ul>
+<li>Linux</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span>amd64 go build -o packer-plugin-tencentcloud-linux-amd64 main.go
+</span></span><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>linux GOARCH<span style="color:#f92672">=</span>arm64 go build -o packer-plugin-tencentcloud-linux-arm64 main.go
+</span></span></code></pre></div><ul>
+<li>MAC</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>darwin GOARCH<span style="color:#f92672">=</span>amd64 go build -o packer-plugin-tencentcloud-darwin-amd64 main.go
+</span></span><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>darwin GOARCH<span style="color:#f92672">=</span>arm64 go build -o packer-plugin-tencentcloud-darwin-arm64 main.go
+</span></span></code></pre></div><ul>
+<li>WIN</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f92672">=</span>amd64 go build -o packer-plugin-tencentcloud-linux-windows-amd64.exe main.go
+</span></span><span style="display:flex;"><span>GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f92672">=</span>arm64 go build -o packer-plugin-tencentcloud-linux-windows-arm64.exe main.go
+</span></span></code></pre></div><h2 id="选择执行机操作系统对应的插件包">选择执行机操作系统对应的插件包</h2>
+<h2 id="配置插件包路径">配置插件包路径</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PACKER_PLUGIN_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>插件包路径<span style="color:#e6db74">}</span>
+</span></span></code></pre></div><h2 id="插件授权可执行权限">插件授权可执行权限</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod a+x <span style="color:#e6db74">${</span>插件包路径<span style="color:#e6db74">}${</span>插件名<span style="color:#e6db74">}</span>
+</span></span></code></pre></div><h2 id="开启日志">开启日志</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PACKER_LOG<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>export PACKER_LOG_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;packer.log&#34;</span>
+</span></span></code></pre></div></section>
+
+  
+  
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="https://gitmkn.github.io/tags/packer"
+      >Packer</a
+    >
+    
+  </footer>
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://gitmkn.github.io/index/packer_plugin_param/"
+      ><span>Packer插件字段说明</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://gitmkn.github.io/">IaC</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

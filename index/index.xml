@@ -7,8 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2023, arunma.cn; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gitmkn.github.io/index/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Packer自定义插件使用</title>
+      <link>https://gitmkn.github.io/index/packer_plugin_customize/</link>
+      <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/index/packer_plugin_customize/</guid>
+      <description> 测试使用，不可用于生产环境
+自定义插件 根据代码构建插件包 Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64 main.go GOOS=linux GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-arm64 main.go MAC GOOS=darwin GOARCH=amd64 go build -o packer-plugin-tencentcloud-darwin-amd64 main.go GOOS=darwin GOARCH=arm64 go build -o packer-plugin-tencentcloud-darwin-arm64 main.go WIN GOOS=windows GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-windows-amd64.exe main.go GOOS=windows GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-windows-arm64.exe main.go 选择执行机操作系统对应的插件包 配置插件包路径 export PACKER_PLUGIN_PATH=${插件包路径} 插件授权可执行权限 chmod a+x ${插件包路径}${插件名} 开启日志 export PACKER_LOG=1 export PACKER_LOG_PATH=&amp;#34;packer.log&amp;#34; </description>
+    </item>
     <item>
       <title>Packer插件字段说明</title>
       <link>https://gitmkn.github.io/index/packer_plugin_param/</link>
