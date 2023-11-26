@@ -7,15 +7,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2023, arunma.cn; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 16 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://gitmkn.github.io/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>标签🏷️</title>
-      <link>https://gitmkn.github.io/tags/</link>
-      <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://gitmkn.github.io/tags/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Terraform介绍</title>
       <link>https://gitmkn.github.io/index/terraform/</link>
@@ -25,6 +18,13 @@
 Terraform的核心层是命令行工具，负责读取配置文件、资源状态文件管理、分析资源关系、绘制资源图以及根据依赖关系创建资源。插件层包括Provider和Provisioner两部分，Provider负责与外界API的集成，进行初始化以及与外界API的认证；Provisioner则在资源创建或删除完成后执行一些脚本。
 Terraform使用HashiCorp Configuration Language（HCL）编写代码，这是一种声明式语言，允许程序员描述基础设施应如何配置，而无需了解实施的具体步骤和细节。此外，Terraform还支持使用模块（module）功能，将高度可重用的代码封装成模块，方便其他人使用。
 总之，Terraform是一款功能强大的基础设施编排工具，能够帮助用户自动化部署和管理云资源，提高工作效率。</description>
+    </item>
+    <item>
+      <title>标签🏷️</title>
+      <link>https://gitmkn.github.io/tags/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/tags/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

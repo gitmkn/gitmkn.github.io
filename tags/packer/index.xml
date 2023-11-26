@@ -48,13 +48,6 @@ Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64
       <description>安装Packer 1. 下载Pakcer安装包 wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip 2. 解压Packer安装包 unzip packer_1.9.4_linux_amd64.zip 3. 安装Packer到环境变量目录 sudo mv packer /usr/local/bin 4. 查看Packer版本号，验证安装状态 packer -v </description>
     </item>
     <item>
-      <title>标签🏷️</title>
-      <link>https://gitmkn.github.io/tags/</link>
-      <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://gitmkn.github.io/tags/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Packer介绍</title>
       <link>https://gitmkn.github.io/index/packer/</link>
       <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
@@ -67,6 +60,13 @@ Packer的主要优点包括：
 自动化构建：Packer可以自动化地执行各种任务，从而实现快速、可靠的镜像构建和部署。
 插件机制：Packer支持插件机制，可以扩展其功能，如支持新的操作系统、配置管理工具和云服务提供商等。
 总之，Packer是一款非常实用的自动化构建工具，可以帮助用户快速、可靠地构建和管理多个平台上的镜像。它的灵活性和可扩展性使得它成为了众多开发者和运维人员的首选工具。</description>
+    </item>
+    <item>
+      <title>标签🏷️</title>
+      <link>https://gitmkn.github.io/tags/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/tags/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

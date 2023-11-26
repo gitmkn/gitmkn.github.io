@@ -48,13 +48,6 @@ Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64
       <description>安装Packer 1. 下载Pakcer安装包 wget https://releases.hashicorp.com/packer/1.9.4/packer_1.9.4_linux_amd64.zip 2. 解压Packer安装包 unzip packer_1.9.4_linux_amd64.zip 3. 安装Packer到环境变量目录 sudo mv packer /usr/local/bin 4. 查看Packer版本号，验证安装状态 packer -v </description>
     </item>
     <item>
-      <title>标签🏷️</title>
-      <link>https://gitmkn.github.io/tags/</link>
-      <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://gitmkn.github.io/tags/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>关于</title>
       <link>https://gitmkn.github.io/about/</link>
       <pubDate>Thu, 16 Nov 2023 00:00:00 +0000</pubDate>
@@ -87,6 +80,13 @@ Packer的主要优点包括：
 Terraform的核心层是命令行工具，负责读取配置文件、资源状态文件管理、分析资源关系、绘制资源图以及根据依赖关系创建资源。插件层包括Provider和Provisioner两部分，Provider负责与外界API的集成，进行初始化以及与外界API的认证；Provisioner则在资源创建或删除完成后执行一些脚本。
 Terraform使用HashiCorp Configuration Language（HCL）编写代码，这是一种声明式语言，允许程序员描述基础设施应如何配置，而无需了解实施的具体步骤和细节。此外，Terraform还支持使用模块（module）功能，将高度可重用的代码封装成模块，方便其他人使用。
 总之，Terraform是一款功能强大的基础设施编排工具，能够帮助用户自动化部署和管理云资源，提高工作效率。</description>
+    </item>
+    <item>
+      <title>标签🏷️</title>
+      <link>https://gitmkn.github.io/tags/</link>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://gitmkn.github.io/tags/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
