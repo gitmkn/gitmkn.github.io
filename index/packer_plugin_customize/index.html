@@ -62,7 +62,7 @@
   
   
   <meta name="description" content=" 测试使用，不可用于生产环境
-自定义插件 根据代码构建插件包 Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64 main.go GOOS=linux GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-arm64 main.go MAC GOOS=darwin GOARCH=amd64 go build -o packer-plugin-tencentcloud-darwin-amd64 main.go GOOS=darwin GOARCH=arm64 go build -o packer-plugin-tencentcloud-darwin-arm64 main.go WIN GOOS=windows GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-windows-amd64.exe main.go GOOS=windows GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-windows-arm64.exe main.go 选择执行机操作系统对应的插件包 配置插件包路径 export PACKER_PLUGIN_PATH=${插件包路径} 插件授权可执行权限 chmod a&#43;x ${插件包路径}${插件名} 开启日志 export PACKER_LOG=1 export PACKER_LOG_PATH=&#34;packer.log&#34; " />
+自定义插件 根据代码构建插件包 Linux GOOS=linux GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-amd64 main.go GOOS=linux GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-arm64 main.go MAC GOOS=darwin GOARCH=amd64 go build -o packer-plugin-tencentcloud-darwin-amd64 main.go GOOS=darwin GOARCH=arm64 go build -o packer-plugin-tencentcloud-darwin-arm64 main.go WIN GOOS=windows GOARCH=amd64 go build -o packer-plugin-tencentcloud-linux-windows-amd64.exe main.go GOOS=windows GOARCH=arm64 go build -o packer-plugin-tencentcloud-linux-windows-arm64.exe main.go 选择执行机操作系统对应的插件包 配置插件包路径 export PACKER_PLUGIN_PATH=${插件包路径} 插件授权可执行权限 chmod a&#43;x ${插件包路径}${插件名} 开启日志 export PACKER_LOG=1 export PACKER_LOG_PATH=&#34;packer.log&#34; 更多插件配置参考Configuring Packer " />
   <meta name="author" content="arunma.cn" />
   
 
@@ -123,7 +123,7 @@
   <meta itemprop="name" content="Packer自定义插件使用">
 <meta itemprop="description" content="Packer测试或者使用自定义插件"><meta itemprop="datePublished" content="2023-11-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-11-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="61">
+<meta itemprop="wordCount" content="63">
 <meta itemprop="keywords" content="Packer," />
   
   <meta property="og:title" content="Packer自定义插件使用" />
@@ -308,7 +308,11 @@
 </span></span></code></pre></div><h2 id="开启日志">开启日志</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PACKER_LOG<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>export PACKER_LOG_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;packer.log&#34;</span>
-</span></span></code></pre></div></section>
+</span></span></code></pre></div><blockquote>
+<p>更多插件配置参考<a href="https://developer.hashicorp.com/packer/docs/configure">Configuring Packer
+</a></p>
+</blockquote>
+</section>
 
   
   
